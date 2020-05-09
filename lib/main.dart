@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:postapp/helper/HexColor.dart';
 import 'package:postapp/pages/home/home.dart';
 import 'package:postapp/pages/signIn/signIn.dart';
+import 'package:postapp/pages/signUp/SignUp.dart';
 
 void main() => runApp(MainApp());
 
@@ -15,14 +16,17 @@ class _MainAppState extends State<MainApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+          textSelectionColor : Colors.grey[200],
+          textSelectionHandleColor: HexColor("A3130D"),
+        cursorColor: HexColor("A3130D"),
         primaryColor: HexColor("A3130D"),
         accentColor: HexColor("A3130D"),
-        inputDecorationTheme:
       ),
       initialRoute: '/SignIn',
       routes: {
         '/' : (context) => Home(),
-        '/SignIn' : (context) => SignIn()
+        '/SignIn' : (context) => SignIn(),
+        '/SignUp' : (context) => SignUp()
       },
     );
   }

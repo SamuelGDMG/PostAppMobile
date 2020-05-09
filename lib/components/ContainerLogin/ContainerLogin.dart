@@ -94,7 +94,7 @@ class _ContainerLoginState extends State<ContainerLogin> {
             SizedBox(height: 20,),
             InkWell(
               onTap: (){
-
+                Navigator.pushNamed(context, '/SignUp');
               },
               splashColor: Colors.grey,
               borderRadius: BorderRadius.all(Radius.circular(50)),
