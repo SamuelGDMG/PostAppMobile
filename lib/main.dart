@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:postapp/helper/HexColor.dart';
+import 'package:postapp/pages/Publish/Publish.dart';
 import 'package:postapp/pages/home/home.dart';
 import 'package:postapp/pages/signIn/signIn.dart';
 import 'package:postapp/pages/signUp/SignUp.dart';
@@ -22,11 +23,12 @@ class _MainAppState extends State<MainApp> {
         primaryColor: HexColor("A3130D"),
         accentColor: HexColor("A3130D"),
       ),
-      initialRoute: '/SignIn',
+      initialRoute: '/',
       routes: {
         '/' : (context) => Home(),
         '/SignIn' : (context) => SignIn(),
-        '/SignUp' : (context) => SignUp()
+        '/SignUp' : (context) => SignUp(),
+        '/Publish' : (context) => Publish()
       },
     );
   }

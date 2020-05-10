@@ -50,6 +50,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               icon:Icons.library_add,
               titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
               onPress: () {
+                Navigator.pushNamed(context, '/Publish');
                 _animationController.reverse();
               },
             ),
