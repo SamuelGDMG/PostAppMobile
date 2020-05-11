@@ -13,6 +13,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   Animation<double> _animation;
   AnimationController _animationController;
 
+  List<Bubble> listaBubble = List<Bubble>();
+
   @override
   void initState() {
     _animationController = AnimationController(
@@ -22,6 +24,33 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
     final curvedAnimation = CurvedAnimation(curve: Curves.easeInOut, parent: _animationController);
     _animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation);
+
+    if(true){
+      listaBubble.add(Bubble(
+        title:"Add User",
+        iconColor :Colors.white,
+        bubbleColor : HexColor("A3130D"),
+        icon:Icons.people,
+        titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
+        onPress: () {
+          Navigator.pushNamed(context, '/AddUser');
+          _animationController.reverse();
+        },
+      ));
+    }
+
+    listaBubble.add(Bubble(
+      title:"Publicar",
+      iconColor :Colors.white,
+      bubbleColor : HexColor("A3130D"),
+      icon:Icons.library_add,
+      titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
+      onPress: () {
+        Navigator.pushNamed(context, '/Publish');
+        _animationController.reverse();
+      },
+    ));
+
     super.initState();
   }
 
@@ -30,49 +59,29 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-        floatingActionButton: FloatingActionBubble(
-          items: <Bubble>[
-            Bubble(
-              title:"Add Usuário",
-              iconColor :Colors.white,
-              bubbleColor : HexColor("A3130D"),
-              icon:Icons.people,
-              titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
-              onPress: () {
+        floatingActionButton: Visibility(
+          visible: true,
+          child: FloatingActionBubble(
+            items: listaBubble,
+
+            // animation controller
+            animation: _animation,
+
+            // On pressed change animation state
+            onPress: (){
+              if(_animationController.isCompleted){
                 _animationController.reverse();
-              },
-            ),
-            //Floating action menu item
-            Bubble(
-              title:"Publicar",
-              iconColor :Colors.white,
-              bubbleColor : HexColor("A3130D"),
-              icon:Icons.library_add,
-              titleStyle:TextStyle(fontSize: 16 , color: Colors.white),
-              onPress: () {
-                Navigator.pushNamed(context, '/Publish');
-                _animationController.reverse();
-              },
-            ),
-          ],
+              }else{
+                _animationController.forward();
+              }
+            },
 
-          // animation controller
-          animation: _animation,
+            // Floating Action button Icon color
+            iconColor: HexColor("A3130D"),
 
-          // On pressed change animation state
-          onPress: (){
-            if(_animationController.isCompleted){
-              _animationController.reverse();
-            }else{
-              _animationController.forward();
-            }
-          },
-
-          // Floating Action button Icon color
-          iconColor: HexColor("A3130D"),
-
-          // Flaoting Action button Icon
-          icon: AnimatedIcons.menu_home,
+            // Flaoting Action button Icon
+            icon: AnimatedIcons.menu_home,
+          ),
         ),
       appBar: AppBar(
         actions: <Widget>[

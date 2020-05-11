@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:postapp/helper/HexColor.dart';
+import 'package:postapp/pages/AddUser/AddUser.dart';
 import 'package:postapp/pages/Publish/Publish.dart';
 import 'package:postapp/pages/home/home.dart';
 import 'package:postapp/pages/signIn/signIn.dart';
@@ -28,7 +29,8 @@ class _MainAppState extends State<MainApp> {
         '/' : (context) => Home(),
         '/SignIn' : (context) => SignIn(),
         '/SignUp' : (context) => SignUp(),
-        '/Publish' : (context) => Publish()
+        '/Publish' : (context) => Publish(),
+        '/AddUser' : (context) => AddUser()
       },
     );
   }
