@@ -24,7 +24,7 @@ class Input extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16),
+      padding: const EdgeInsets.only(left: 36, right: 36),
       child: Material(
         borderRadius: BorderRadius.all(Radius.circular(22)),
         color: Colors.white,
@@ -33,7 +33,7 @@ class Input extends StatelessWidget {
           autocorrect: false,
           decoration: InputDecoration(
             labelStyle: TextStyle(
-
+              fontFamily: 'RobotoSlab-Regular'
             ),
             fillColor: Colors.transparent,
             labelText: labelText,

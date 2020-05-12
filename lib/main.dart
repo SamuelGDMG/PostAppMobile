@@ -18,6 +18,7 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
           textSelectionColor : Colors.grey[200],
           textSelectionHandleColor: HexColor("A3130D"),

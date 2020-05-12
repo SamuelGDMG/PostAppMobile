@@ -42,7 +42,7 @@ class _ContainerLoginState extends State<ContainerLogin> {
                 return null;
               },
             ),
-            SizedBox(height: 5,),
+            SizedBox(height: 15,),
             Input(
               isPassword : true,
               icon: Icons.lock,
@@ -56,21 +56,7 @@ class _ContainerLoginState extends State<ContainerLogin> {
                 return null;
               },
             ),
-            SizedBox(height: 8,),
-            Padding(
-              padding: const EdgeInsets.only(right: 18),
-              child: Container(
-                alignment: Alignment.topRight,
-                width: (MediaQuery.of(context).size.width),
-                child: GestureDetector(
-                  onTap: (){
-                    print("awdawdawd");
-                  },
-                    child: Text("Esqueci minha senha")
-                ),
-              ),
-            ),
-            SizedBox(height: 10,),
+            SizedBox(height: 40,),
             Padding(
               padding: EdgeInsets.only(right: 16, left: 16),
               child: Material(
@@ -96,18 +82,51 @@ class _ContainerLoginState extends State<ContainerLogin> {
                   borderRadius: BorderRadius.circular(50),
                 ),
                 height: 40,
-                width: 100,
+                width: 150,
                 child: Center(
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text("Cadastrar-se", style: TextStyle(color: HexColor("A3130D"), fontWeight: FontWeight.bold),)
+                      Text("Cadastrar-se", 
+                      style: TextStyle(
+                      color: HexColor("A3130D"), 
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'RobotoSlab-Regular'
+                      ),)
                     ],
                   ),
                 ),
               ),
-            )
+            ),
+            Row(children: <Widget>[
+              Padding(
+              padding: const EdgeInsets.fromLTRB(80,50,0,5),
+              child: Container(
+                child: Text("Esqueceu sua senha?", 
+                    style: TextStyle(
+                      fontFamily: 'RobotoSlab-Regular',
+                      fontSize: 16,
+                    ),),
+                
+              ),
+              
+            ),
+             Padding(
+              padding: const EdgeInsets.fromLTRB(10,45,0,0),
+             child: GestureDetector(
+                  onTap: (){
+                    print("awdawdawd");
+                  },
+                    child: Text("Mudar senha", 
+                    style: TextStyle(
+                      fontFamily: 'RobotoSlab-Regular',
+                      fontSize: 16,
+                      color: Colors.red
+                    ),)
+                ),
+             )
+            ],)
           ],
         ),
       ),
@@ -144,13 +163,18 @@ class _ContainerLoginState extends State<ContainerLogin> {
       },
       child: Container(
         height: 56,
-        width: double.infinity,
+        width: 300,
         child: Center(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text("Entrar", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+              Text("Entrar", 
+              style: TextStyle(
+                color: Colors.white, 
+                fontWeight: FontWeight.bold,
+                fontFamily: 'RobotoSlab-Regular'
+                ),),
             ],
           ),
         ),
