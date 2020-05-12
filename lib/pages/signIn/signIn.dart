@@ -16,7 +16,7 @@ class _SignInState extends State<SignIn> {
           Container(
             width: double.maxFinite,
             height: double.maxFinite,
-            child: Image.asset("lib/images/mob.jpg", alignment: Alignment.topLeft,),
+            child: Image.asset("lib/images/1.png", alignment: Alignment.topLeft,),
           ),
           Positioned(
             top: 200,
@@ -34,9 +34,15 @@ class _SignInState extends State<SignIn> {
             ),
           ),
           Positioned(
-            top: 140,
-            left: 30,
-            child: Text("PostApp\nLogin", style: TextStyle(color: Colors.white, fontSize: 20),),
+            top: 230,
+            left: 130,
+            child: Text("PostApp Login", 
+            style: TextStyle(
+              color: Colors.black,
+               fontSize: 20,
+               fontFamily: 'RobotoSlab'
+              
+              ),),
           )
         ],
       ),
