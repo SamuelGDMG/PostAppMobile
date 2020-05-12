@@ -88,7 +88,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           IconButton(
             icon: Icon(Icons.account_circle),
             onPressed: (){
-
+              Navigator.pushNamed(context, '/Perfil');
             },
           ),
         ],

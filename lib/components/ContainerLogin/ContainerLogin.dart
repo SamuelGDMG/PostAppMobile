@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:postapp/components/Input/Input.dart';
 import 'package:postapp/helper/HexColor.dart';
+import 'package:http/http.dart' as http;
 
 class ContainerLogin extends StatefulWidget {
   @override
@@ -14,6 +15,8 @@ class _ContainerLoginState extends State<ContainerLogin> {
 
   String _email;
   String _senha;
+
+  bool aguardar = false;
 
   @override
   Widget build(BuildContext context) {
@@ -74,21 +77,7 @@ class _ContainerLoginState extends State<ContainerLogin> {
                 elevation: 5,
                 borderRadius: BorderRadius.all(Radius.circular(50)),
                 color: HexColor("A3130D"),
-                child: InkWell(
-                    borderRadius: BorderRadius.all(Radius.circular(50)),
-                    onTap: (){
-                      if (_formKey.currentState.validate()) {
-                        _formKey.currentState.save();
-                      }
-                    },
-                    child: Container(
-                      height: 56,
-                      width: double.infinity,
-                      child: Center(
-                        child: Text("Entrar", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
-                      ),
-                    ),
-                  ),
+                child: aguardar ? botaoAguardar() : botaoLogin(),
               ),
             ),
             SizedBox(height: 20,),
@@ -124,4 +113,66 @@ class _ContainerLoginState extends State<ContainerLogin> {
       ),
     );
   }
+
+  Widget botaoAguardar(){
+    return Container(
+      height: 56,
+      width: double.infinity,
+      child: Center(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            CircularProgressIndicator(backgroundColor: Colors.white),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget botaoLogin(){
+    return InkWell(
+      borderRadius: BorderRadius.all(Radius.circular(50)),
+      onTap: () {
+        if (_formKey.currentState.validate()) {
+          _formKey.currentState.save();
+          setState(() {
+            aguardar = true;
+          });
+          fetchAlbum();
+        }
+      },
+      child: Container(
+        height: 56,
+        width: double.infinity,
+        child: Center(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text("Entrar", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void fetchAlbum() async {
+    final response = await http.post('http://192.168.1.6:3030/postapp/api/v1/authenticate', body: {
+      'email' : 'samuel@fatec..br',
+      'senha' : '123456789'
+    });
+
+    print(response.statusCode);
+
+    if (response.statusCode == 200) {
+      Navigator.popAndPushNamed(context, '/Home');
+    } else {
+      setState(() {
+        aguardar = false;
+      });
+    }
+  }
+
 }

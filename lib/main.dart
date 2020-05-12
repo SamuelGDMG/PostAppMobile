@@ -3,6 +3,7 @@ import 'package:postapp/helper/HexColor.dart';
 import 'package:postapp/pages/AddUser/AddUser.dart';
 import 'package:postapp/pages/Publish/Publish.dart';
 import 'package:postapp/pages/home/home.dart';
+import 'package:postapp/pages/perfil/Perfil.dart';
 import 'package:postapp/pages/signIn/signIn.dart';
 import 'package:postapp/pages/signUp/SignUp.dart';
 
@@ -24,13 +25,14 @@ class _MainAppState extends State<MainApp> {
         primaryColor: HexColor("A3130D"),
         accentColor: HexColor("A3130D"),
       ),
-      initialRoute: '/',
+      initialRoute: '/Home',
       routes: {
-        '/' : (context) => Home(),
-        '/SignIn' : (context) => SignIn(),
+        '/' : (context) => SignIn(),
+        '/Home' : (context) => Home(),
         '/SignUp' : (context) => SignUp(),
         '/Publish' : (context) => Publish(),
-        '/AddUser' : (context) => AddUser()
+        '/AddUser' : (context) => AddUser(),
+        '/Perfil' : (context) => Perfil()
       },
     );
   }
