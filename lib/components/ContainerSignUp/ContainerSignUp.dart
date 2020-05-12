@@ -17,10 +17,12 @@ class _FormSignUpState extends State<FormSignUp> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      child: Material(
+        double marginTop = MediaQuery.of(context).size.height - (MediaQuery.of(context).size.height * 0.5) - 250;
+
+    return Container(
+      margin: EdgeInsets.only(top: marginTop),
+      child: Form(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Input(
               icon: Icons.perm_identity,
@@ -34,7 +36,7 @@ class _FormSignUpState extends State<FormSignUp> {
                 return null;
               },
             ),
-            SizedBox(height: 5,),
+            SizedBox(height: 15,),
             Input(
               isEmail: true,
               icon: Icons.email,
@@ -48,7 +50,7 @@ class _FormSignUpState extends State<FormSignUp> {
                 return null;
               },
             ),
-            SizedBox(height: 5,),
+            SizedBox(height: 15,),
             Input(
               isPassword: true,
               icon: Icons.lock,
@@ -62,9 +64,9 @@ class _FormSignUpState extends State<FormSignUp> {
                 return null;
               },
             ),
-            SizedBox(height: 5,),
+            SizedBox(height: 15),
             escolherCurso(),
-            SizedBox(height: 10,),
+            SizedBox(height: 25,),
             Padding(
               padding: EdgeInsets.only(right: 16, left: 16),
               child: Material(
@@ -93,7 +95,7 @@ class _FormSignUpState extends State<FormSignUp> {
 
   Widget escolherCurso(){
     return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16),
+      padding: const EdgeInsets.only(left: 32, right: 32),
       child: Material(
         borderRadius: BorderRadius.all(Radius.circular(22)),
         color: Colors.white,
@@ -114,7 +116,7 @@ class _FormSignUpState extends State<FormSignUp> {
                   padding: EdgeInsets.only(right: 5),
                   child: Icon(Icons.list, color: HexColor("A3130D"),),
                 ),
-                Text("Cursos", style: TextStyle(color: HexColor("A3130D"), fontFamily: "Roboto"),)
+                Text("Cursos", style: TextStyle(color: HexColor("A3130D"), fontFamily: "RobotoSlab-Regular"),)
               ],
             ),
           ),

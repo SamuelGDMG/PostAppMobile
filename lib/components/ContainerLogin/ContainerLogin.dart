@@ -122,7 +122,7 @@ class _ContainerLoginState extends State<ContainerLogin> {
                     style: TextStyle(
                       fontFamily: 'RobotoSlab-Regular',
                       fontSize: 16,
-                      color: Colors.red
+                      color: HexColor("A3130D"),
                     ),)
                 ),
              )
