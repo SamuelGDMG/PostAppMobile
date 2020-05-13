@@ -80,6 +80,11 @@ class _FormSignUpState extends State<FormSignUp> {
                   child: Container(
                     height: 56,
                     width: double.infinity,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(50)),
+                          gradient: LinearGradient(
+                            colors: [HexColor("A3130D"), HexColor("e86c68")])
+                        ),
                     child: Center(
                       child: Text("Cadastrar", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
                     ),
