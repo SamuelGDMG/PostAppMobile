@@ -33,9 +33,12 @@ class PostCard extends StatelessWidget {
                 SizedBox(height: 10),
                 Row(
                   children: <Widget>[
-                    CircleAvatar(
+                    Container(
+                      width: 70,
+                      height: 70,
+                      child: CircleAvatar(
                       backgroundImage: NetworkImage("https://media-exp1.licdn.com/dms/image/C4D03AQFE7z3GfjHWUw/profile-displayphoto-shrink_200_200/0?e=1594857600&v=beta&t=0E_9IgiB6jo7nOngU598QWx1b7o7g2TAeNXTRsjRFmM"),
-                    ),
+                    ),),
                     SizedBox(width: 5),
                     Container(
                       margin: EdgeInsets.only(left: 5),

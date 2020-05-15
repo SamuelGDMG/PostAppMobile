@@ -31,12 +31,13 @@ class _PublishState extends State<Publish> {
         ],
         title: Text("Publicar"),
       ),
-      body: Column(
+      body: Center(
+      child: Column(
         children: <Widget>[
           bodyPublish(),
-          SizedBox(height: 10,),
+          SizedBox(height: 30,),
           Padding(
-            padding: EdgeInsets.only(right: 16, left: 16),
+            padding: EdgeInsets.only(right: 0, left: 0),
             child: Material(
               elevation: 5,
               borderRadius: BorderRadius.all(Radius.circular(50)),
@@ -48,15 +49,27 @@ class _PublishState extends State<Publish> {
                 },
                 child: Container(
                   height: 56,
-                  width: double.infinity,
+                  decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(50)),
+                          gradient: LinearGradient(
+                            colors: [HexColor("A3130D"), HexColor("e86c68")])
+                        ),
+                  width: 230,
                   child: Center(
-                    child: Text("Cursos", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                    child: Text("Cursos", 
+                    style: TextStyle(
+                      color: Colors.white, 
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'RobotoSlab-Regular',
+                      fontSize: 15
+                      ),),
                   ),
                 ),
               ),
             ),
           ),
         ],
+      )
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.check),
@@ -68,19 +81,26 @@ class _PublishState extends State<Publish> {
   }
 
   Widget bodyPublish(){
-    return Padding(
-      padding: EdgeInsets.only(top: 8, right: 16, left: 16, bottom: 8),
+    return Center(
+      child: Padding(
+      padding: EdgeInsets.only(top: 18, right: 16, left: 16, bottom: 8),
       child: Material(
         borderRadius: BorderRadius.all(Radius.circular(25)),
         color: Colors.white,
         elevation: 4,
         child: Padding(
-          padding: EdgeInsets.all(12),
+          padding: EdgeInsets.fromLTRB(14,0,16,20),
           child: Container(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 TextFormField(
+                  keyboardType: TextInputType.multiline,
+                  maxLines: 1,
+                          style: TextStyle(
+                            fontFamily: 'RobotoSlab-Regular',
+                            fontSize: 16
+                          ),
                   autocorrect: false,
                   validator: (String value){
                     if(value.isEmpty){
@@ -89,7 +109,10 @@ class _PublishState extends State<Publish> {
                     return null;
                   },
                   decoration: InputDecoration(
-                    labelStyle: TextStyle(),
+                    labelStyle: TextStyle(
+                            fontFamily: 'RobotoSlab-Regular',
+                            fontSize: 17
+                          ),
                     fillColor: Colors.transparent,
                     labelText: "Título",
                     hintText: "Ex: Palestra sobre chatbot",
@@ -97,37 +120,56 @@ class _PublishState extends State<Publish> {
                     filled: true,
                   ),
                   onSaved: (String value) => this._titulo = value,
-                  keyboardType: TextInputType.text,
                 ),
                 Row(
                   children: <Widget>[
-                    CircleAvatar(
-                      backgroundImage: NetworkImage("https://media-exp1.licdn.com/dms/image/C4D03AQFE7z3GfjHWUw/profile-displayphoto-shrink_200_200/0?e=1594857600&v=beta&t=0E_9IgiB6jo7nOngU598QWx1b7o7g2TAeNXTRsjRFmM"),
-                    ),
                     Container(
-                      margin: EdgeInsets.only(left: 5),
+                      margin: EdgeInsets.only(left: 9),
+                      width: 70,
+                      height: 70,
+                      child: CircleAvatar(
+                      backgroundImage: NetworkImage("https://media-exp1.licdn.com/dms/image/C4D03AQFE7z3GfjHWUw/profile-displayphoto-shrink_200_200/0?e=1594857600&v=beta&t=0E_9IgiB6jo7nOngU598QWx1b7o7g2TAeNXTRsjRFmM"),
+                    ),),
+                    Container(
+                      margin: EdgeInsets.only(left: 9),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text("Diretor: Samuel"),
-                          Text("samuel@hotmail.com")
+                          Text("Autor: Samuel", 
+                          style: TextStyle(
+                            fontFamily: 'RobotoSlab-Regular',
+                            fontSize: 16
+                          ),),
+                          Text("samuel@hotmail.com", 
+                          style: TextStyle(
+                            fontFamily: 'RobotoSlab-Regular',
+                            fontSize: 16
+                          ),)
                         ],
                       ),
                     )
                   ],
                 ),
-                Divider(),
+                Divider( thickness: 2,),
                 TextFormField(
+                  style: TextStyle(
+                    fontFamily: 'RobotoSlab-Regular',
+                    fontSize: 17
+                  ),
+                  keyboardType: TextInputType.multiline,
+                  maxLines: 2,
                   autocorrect: false,
                   validator: (String value){
                     if(value.isEmpty){
-                      return "Digite um título";
+                      return "Digite uma descrição";
                     }
                     return null;
                   },
                   decoration: InputDecoration(
-                    labelStyle: TextStyle(),
+                    labelStyle: TextStyle(
+                      fontFamily: 'RobotoSlab-Regular',
+                    fontSize: 17),
                     fillColor: Colors.transparent,
                     labelText: "Descrição",
                     hintText: "Ex: Palestra sobre chatbot",
@@ -135,16 +177,16 @@ class _PublishState extends State<Publish> {
                     filled: true,
                   ),
                   onSaved: (String value) => this._titulo = value,
-                  keyboardType: TextInputType.text,
                 ),
-                Divider(color: Colors.grey,),
+                Divider(thickness: 2,),
                 Row(
                   children: <Widget>[
+                    SizedBox(width: 10),
                     InkWell(
                       onTap: () async {
                         await _showDialogAddLink();
                       },
-                      child: Text("Adicionar Link", style: TextStyle(color: Colors.blueAccent),),
+                      child: Text("Adicionar Link", style: TextStyle(color: Colors.blueAccent, fontFamily: 'RobotoSlab-Regular',),),
                     ),
                     Visibility(
                       visible: linkAdd,
@@ -164,6 +206,7 @@ class _PublishState extends State<Publish> {
           ),
         ),
       ),
+      )
     );
   }
 
