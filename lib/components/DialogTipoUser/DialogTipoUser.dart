@@ -15,7 +15,12 @@ class _DialogTipoUserState extends State<DialogTipoUser> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Selecionar cursos'),
+      title: Text('Selecionar cursos',
+      style: TextStyle(
+      color: Colors.black, 
+      fontFamily: 'RobotoSlab-Regular',
+      fontSize: 17
+      ),),
       content: Container(
         height: 200,
         width: 200,
@@ -27,7 +32,12 @@ class _DialogTipoUserState extends State<DialogTipoUser> {
 
                 },
                 child: ListTile(
-                  title: const Text('Professor'),
+                  title: const Text('Professor',
+                  style: TextStyle(
+                  color: Colors.black, 
+                  fontFamily: 'RobotoSlab-Regular',
+                  fontSize: 17
+                  ),),
                   leading: Radio(
                     value: SingingCharacter.lafayette,
                     groupValue: _character,
@@ -43,13 +53,23 @@ class _DialogTipoUserState extends State<DialogTipoUser> {
       ),
       actions: <Widget>[
         FlatButton(
-          child: Text('Cancelar'),
+          child: Text('Cancelar',
+      style: TextStyle(
+      color: Colors.blueAccent, 
+      fontFamily: 'RobotoSlab-Regular',
+      fontSize: 17
+      ),),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
         FlatButton(
-          child: Text('Confirmar'),
+          child: Text('Confirmar',
+      style: TextStyle(
+      color: Colors.blueAccent, 
+      fontFamily: 'RobotoSlab-Regular',
+      fontSize: 17
+      ),),
           onPressed: () {
             Navigator.of(context).pop();
           },

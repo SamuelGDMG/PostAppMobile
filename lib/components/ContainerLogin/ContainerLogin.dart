@@ -91,6 +91,7 @@ class _ContainerLoginState extends State<ContainerLogin> {
                       Text("Cadastrar-se", 
                       style: TextStyle(
                       color: HexColor("A3130D"), 
+                      fontSize: 15,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'RobotoSlab-Regular'
                       ),)
@@ -164,6 +165,11 @@ class _ContainerLoginState extends State<ContainerLogin> {
       child: Container(
         height: 56,
         width: 300,
+        decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(50)),
+                          gradient: LinearGradient(
+                            colors: [HexColor("A3130D"), HexColor("e86c68")])
+                        ),
         child: Center(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -173,7 +179,8 @@ class _ContainerLoginState extends State<ContainerLogin> {
               style: TextStyle(
                 color: Colors.white, 
                 fontWeight: FontWeight.bold,
-                fontFamily: 'RobotoSlab-Regular'
+                fontFamily: 'RobotoSlab-Regular',
+                fontSize: 17
                 ),),
             ],
           ),

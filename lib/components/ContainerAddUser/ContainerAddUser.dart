@@ -39,7 +39,7 @@ class _ContainerAddUserState extends State<ContainerAddUser> {
                   return null;
                 },
               ),
-              SizedBox(height: 5,),
+              SizedBox(height: 15,),
               Input(
                 isEmail: true,
                 icon: Icons.email,
@@ -53,7 +53,7 @@ class _ContainerAddUserState extends State<ContainerAddUser> {
                   return null;
                 },
               ),
-              SizedBox(height: 5,),
+              SizedBox(height: 15,),
               Input(
                 isPassword: true,
                 icon: Icons.lock,
@@ -67,13 +67,13 @@ class _ContainerAddUserState extends State<ContainerAddUser> {
                   return null;
                 },
               ),
-              SizedBox(height: 5,),
+              SizedBox(height: 15,),
               escolherCurso(),
-              SizedBox(height: 5,),
+              SizedBox(height: 15,),
               tipoUser(),
-              SizedBox(height: 10,),
+              SizedBox(height: 55,),
               Padding(
-                padding: EdgeInsets.only(right: 16, left: 16),
+                padding: EdgeInsets.only(right: 56, left: 56),
                 child: Material(
                   elevation: 5,
                   borderRadius: BorderRadius.all(Radius.circular(50)),
@@ -85,8 +85,18 @@ class _ContainerAddUserState extends State<ContainerAddUser> {
                     child: Container(
                       height: 56,
                       width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(50)),
+                          gradient: LinearGradient(
+                            colors: [HexColor("A3130D"), HexColor("e86c68")])
+                        ),
                       child: Center(
-                        child: Text("Cadastrar", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                        child: Text("Cadastrar", 
+                        style: TextStyle(
+                          color: Colors.white, 
+                          fontFamily: 'RobotoSlab',
+                          fontSize: 17
+                          ),),
                       ),
                     ),
                   ),
@@ -101,7 +111,7 @@ class _ContainerAddUserState extends State<ContainerAddUser> {
 
   Widget escolherCurso(){
     return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16),
+      padding: const EdgeInsets.only(left: 32, right: 32),
       child: Material(
         borderRadius: BorderRadius.all(Radius.circular(22)),
         color: Colors.white,
@@ -143,7 +153,7 @@ class _ContainerAddUserState extends State<ContainerAddUser> {
 
   Widget tipoUser(){
     return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16),
+      padding: const EdgeInsets.only(left: 32, right: 32),
       child: Material(
         borderRadius: BorderRadius.all(Radius.circular(22)),
         color: Colors.white,
