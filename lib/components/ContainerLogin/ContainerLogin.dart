@@ -156,6 +156,8 @@ class _ContainerLoginState extends State<ContainerLogin> {
       onTap: () {
         if (_formKey.currentState.validate()) {
           _formKey.currentState.save();
+          print(_email);
+          print(_senha);
           setState(() {
             aguardar = true;
           });

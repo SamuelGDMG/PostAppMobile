@@ -4,6 +4,7 @@ import 'package:postapp/components/DialogCursos/DialogCursos.dart';
 import 'package:postapp/components/Input/Input.dart';
 import 'package:postapp/helper/HexColor.dart';
 
+
 class FormSignUp extends StatefulWidget {
   @override
   _FormSignUpState createState() => _FormSignUpState();

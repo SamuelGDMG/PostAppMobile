@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:postapp/Home3.dart';
 import 'package:postapp/helper/HexColor.dart';
 import 'package:postapp/pages/AddUser/AddUser.dart';
 import 'package:postapp/pages/Publish/Publish.dart';
@@ -29,7 +30,7 @@ class _MainAppState extends State<MainApp> {
       initialRoute: '/Home',
       routes: {
         '/' : (context) => SignIn(),
-        '/Home' : (context) => Home(),
+        '/Home' : (context) => Home3(),
         '/SignUp' : (context) => SignUp(),
         '/Publish' : (context) => Publish(),
         '/AddUser' : (context) => AddUser(),

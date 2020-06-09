@@ -1,5 +1,7 @@
 import 'package:floating_action_bubble/floating_action_bubble.dart';
 import 'package:flutter/material.dart';
+import 'package:postapp/Home3.dart';
+import 'package:postapp/PaginaCurso.dart';
 import 'package:postapp/components/PostCard/PostCard.dart';
 import 'package:postapp/helper/HexColor.dart';
 
@@ -96,11 +98,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         title: Text('PostApp'),
       ),
       body: Container(
-        child: ListView.builder(
-          itemCount: 20,
-            itemBuilder: (BuildContext context, int index){
-          return PostCard();
-        }),
+        child: PaginaCurso()
       ),
     );
   }
