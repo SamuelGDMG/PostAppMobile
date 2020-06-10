@@ -3,25 +3,42 @@ import 'package:flutter/material.dart';
 import 'package:postapp/components/DialogCursos/DialogCursos.dart';
 import 'package:postapp/components/Input/Input.dart';
 import 'package:postapp/helper/HexColor.dart';
+import 'package:postapp/stores/CursosModel.dart';
+import 'package:provider/provider.dart';
 
 class FormSignUp extends StatefulWidget {
+
+  FormSignUp();
+
   @override
   _FormSignUpState createState() => _FormSignUpState();
 }
 
 class _FormSignUpState extends State<FormSignUp> {
 
+  final _formKey = GlobalKey<FormState>();
+
+  bool aguardar = false;
+
   String _email;
   String _senha;
   String _nome;
+  CursosModel cursosModel;
 
   @override
   Widget build(BuildContext context) {
         double marginTop = MediaQuery.of(context).size.height - (MediaQuery.of(context).size.height * 0.5) - 250;
 
+        cursosModel = Provider.of<CursosModel>(context);
+
+        //cursosModel.cursos[0].changeSelected(true);
+
+        //print(cursosModel.cursos[0].selected);
+
     return Container(
       margin: EdgeInsets.only(top: marginTop),
       child: Form(
+        key: _formKey,
         child: Column(
           children: <Widget>[
             Input(
@@ -67,32 +84,70 @@ class _FormSignUpState extends State<FormSignUp> {
             SizedBox(height: 15),
             escolherCurso(),
             SizedBox(height: 25,),
-            Padding(
-              padding: EdgeInsets.only(right: 16, left: 16),
-              child: Material(
-                elevation: 5,
-                borderRadius: BorderRadius.all(Radius.circular(50)),
-                color: HexColor("A3130D"),
-                child: InkWell(
-                  borderRadius: BorderRadius.all(Radius.circular(50)),
-                  onTap: (){
-                  },
-                  child: Container(
-                    height: 56,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(50)),
-                          gradient: LinearGradient(
-                            colors: [HexColor("A3130D"), HexColor("e86c68")])
-                        ),
-                    child: Center(
-                      child: Text("Cadastrar", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
-                    ),
-                  ),
-                ),
-              ),
-            )
+            aguardar ? botaoCadastrarAguardar() : botaoCadastrar()
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget botaoCadastrarAguardar(){
+    return Padding(
+      padding: const EdgeInsets.only(left: 32, right: 32),
+      child: Material(
+        elevation: 5,
+        borderRadius: BorderRadius.all(Radius.circular(50)),
+        color: HexColor("A3130D"),
+        child: InkWell(
+          borderRadius: BorderRadius.all(Radius.circular(50)),
+          onTap: (){
+
+          },
+          child: Container(
+            height: 56,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(50)),
+                gradient: LinearGradient(
+                    colors: [HexColor("A3130D"), HexColor("e86c68")])
+            ),
+            child: Center(
+              child: CircularProgressIndicator(backgroundColor: Colors.white,),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget botaoCadastrar(){
+    return Padding(
+      padding: const EdgeInsets.only(left: 32, right: 32),
+      child: Material(
+        elevation: 5,
+        borderRadius: BorderRadius.all(Radius.circular(50)),
+        color: HexColor("A3130D"),
+        child: InkWell(
+          borderRadius: BorderRadius.all(Radius.circular(50)),
+          onTap: (){
+            if (_formKey.currentState.validate()) {
+              _formKey.currentState.save();
+              setState(() {
+                aguardar = true;
+              });
+              //fetchAlbum();
+            }
+          },
+          child: Container(
+            height: 56,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(50)),
+                gradient: LinearGradient(
+                    colors: [HexColor("A3130D"), HexColor("e86c68")])
+            ),
+            child: Center(
+              child: Text("Cadastrar", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+            ),
+          ),
         ),
       ),
     );
@@ -134,8 +189,8 @@ class _FormSignUpState extends State<FormSignUp> {
     return showDialog<void>(
       context: context,
       barrierDismissible: false, // user must tap button!
-      builder: (BuildContext context) {
-        return DialogCursos();
+      builder: (_) {
+        return DialogCursos(cursosModel : cursosModel);
       },
     );
   }

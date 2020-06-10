@@ -19,7 +19,7 @@ class _SignInState extends State<SignIn> {
             child: Image.asset("lib/images/1.png", alignment: Alignment.topLeft,),
           ),
           Positioned(
-            top: 200,
+            top: MediaQuery.of(context).size.height * 0.25,
             child: Container(
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
@@ -34,15 +34,20 @@ class _SignInState extends State<SignIn> {
             ),
           ),
           Positioned(
-            top: 230,
-            left: 130,
-            child: Text("PostApp Login", 
-            style: TextStyle(
-              color: Colors.black,
-               fontSize: 20,
-               fontFamily: 'RobotoSlab'
-              
-              ),),
+            top: MediaQuery.of(context).size.height * 0.27,
+            child: Center(
+              child: Container(
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width,
+                child: Text("PostApp Login",
+                style: TextStyle(
+                  color: Colors.black,
+                   fontSize: 20,
+                   fontFamily: 'RobotoSlab'
+
+                  ),),
+              ),
+            ),
           )
         ],
       ),

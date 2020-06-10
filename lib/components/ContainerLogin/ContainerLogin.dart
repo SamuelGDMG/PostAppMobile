@@ -100,34 +100,32 @@ class _ContainerLoginState extends State<ContainerLogin> {
                 ),
               ),
             ),
-            Row(children: <Widget>[
-              Padding(
-              padding: const EdgeInsets.fromLTRB(80,50,0,5),
-              child: Container(
-                child: Text("Esqueceu sua senha?", 
-                    style: TextStyle(
-                      fontFamily: 'RobotoSlab-Regular',
-                      fontSize: 16,
-                    ),),
-                
-              ),
-              
-            ),
-             Padding(
-              padding: const EdgeInsets.fromLTRB(10,45,0,0),
-             child: GestureDetector(
-                  onTap: (){
-                    print("awdawdawd");
-                  },
-                    child: Text("Mudar senha", 
-                    style: TextStyle(
-                      fontFamily: 'RobotoSlab-Regular',
-                      fontSize: 16,
-                      color: HexColor("A3130D"),
-                    ),)
+            Container(
+              margin: EdgeInsets.only(top: 25),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                Container(
+                  child: Text("Esqueceu sua senha?",
+                      style: TextStyle(
+                        fontFamily: 'RobotoSlab-Regular',
+                        fontSize: 16,
+                      ),),
+
                 ),
-             )
-            ],)
+                GestureDetector(
+                    onTap: (){
+                      print("awdawdawd");
+                    },
+                      child: Text("Mudar senha",
+                      style: TextStyle(
+                        fontFamily: 'RobotoSlab-Regular',
+                        fontSize: 16,
+                        color: HexColor("A3130D"),
+                      ),)
+                  ),
+              ],),
+            )
           ],
         ),
       ),
