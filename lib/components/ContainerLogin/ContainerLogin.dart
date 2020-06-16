@@ -100,32 +100,34 @@ class _ContainerLoginState extends State<ContainerLogin> {
                 ),
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(top: 25),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                Container(
-                  child: Text("Esqueceu sua senha?",
-                      style: TextStyle(
-                        fontFamily: 'RobotoSlab-Regular',
-                        fontSize: 16,
-                      ),),
-
+            Row(children: <Widget>[
+              Padding(
+              padding: const EdgeInsets.fromLTRB(80,50,0,5),
+              child: Container(
+                child: Text("Esqueceu sua senha?", 
+                    style: TextStyle(
+                      fontFamily: 'RobotoSlab-Regular',
+                      fontSize: 16,
+                    ),),
+                
+              ),
+              
+            ),
+             Padding(
+              padding: const EdgeInsets.fromLTRB(10,45,0,0),
+             child: GestureDetector(
+                  onTap: (){
+                    print("awdawdawd");
+                  },
+                    child: Text("Mudar senha", 
+                    style: TextStyle(
+                      fontFamily: 'RobotoSlab-Regular',
+                      fontSize: 16,
+                      color: HexColor("A3130D"),
+                    ),)
                 ),
-                GestureDetector(
-                    onTap: (){
-                      print("awdawdawd");
-                    },
-                      child: Text("Mudar senha",
-                      style: TextStyle(
-                        fontFamily: 'RobotoSlab-Regular',
-                        fontSize: 16,
-                        color: HexColor("A3130D"),
-                      ),)
-                  ),
-              ],),
-            )
+             )
+            ],)
           ],
         ),
       ),
@@ -188,9 +190,9 @@ class _ContainerLoginState extends State<ContainerLogin> {
   }
 
   void fetchAlbum() async {
-    final response = await http.post('http://192.168.1.6:3030/postapp/api/v1/authenticate', body: {
-      'email' : 'samuel@fatec..br',
-      'senha' : '123456789'
+    final response = await http.post('http://192.168.1.4:3030/postapp/api/v1/authenticate', body: {
+      'email' : _email,
+      'senha' : _senha
     });
 
     print(response.statusCode);

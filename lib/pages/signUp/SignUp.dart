@@ -108,7 +108,7 @@ class _SignUpState extends State<SignUp> {
   Future<dynamic> buscarCursos() async{
 
     try{
-      final response = await http.get('http://192.168.1.9:3030/postapp/api/v1/cadastro').timeout(Duration(seconds: 2));
+      final response = await http.get('http://192.168.1.4:3030/postapp/api/v1/cadastro').timeout(Duration(seconds: 2));
 
       return response.body;
     }on TimeoutException catch (_) {
