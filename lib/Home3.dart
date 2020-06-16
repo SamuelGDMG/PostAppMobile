@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:postapp/Materia.dart';
 import 'package:postapp/PaginaCurso.dart';
 
 class Home3 extends StatelessWidget {
@@ -29,6 +30,7 @@ class Home3 extends StatelessWidget {
               ),
             ),
           ),
+          
           Transform.translate(
             offset: Offset(39.0, 35.0),
             child: SizedBox(
@@ -46,7 +48,14 @@ class Home3 extends StatelessWidget {
               )),
             ),
           ),
-          Transform.translate(
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Materia()),
+              );
+            },
+            child: Transform.translate(
             offset: Offset(33.0, 243.0),
             child:
                 // Adobe XD layer: 'Gerenciamento-de-Re…' (shape)
@@ -62,6 +71,7 @@ class Home3 extends StatelessWidget {
                 border: Border.all(width: 1.0, color: const Color(0xff707070)),
               ),
             ),
+          ),
           ),
           Transform.translate(
             offset: Offset(39.0, 213.0),
