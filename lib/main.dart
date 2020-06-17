@@ -32,7 +32,7 @@ class _MainAppState extends State<MainApp> {
       initialRoute: '/Home',
       routes: {
         '/' : (context) => SignIn(),
-        '/Home' : (context) => Calendario(),
+        '/Home' : (context) => Materia(),
         '/SignUp' : (context) => SignUp(),
         '/Publish' : (context) => Publish(),
         '/AddUser' : (context) => AddUser(),
